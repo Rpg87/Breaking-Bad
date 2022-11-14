@@ -3,3 +3,9 @@ $defaultFontSize: 16;
 @function rem($pixels) {
     @return ($pixels / $defaultFontSize * 1rem);
 }
+
+.selected {
+    
+    background-color: rgb(248, 239, 214);
+    
+}
