@@ -2,7 +2,7 @@
 
 // querys
 const listCharacters = document.querySelector('.js_characters'); //ul
-const btnSearch = document.querySelector('.form_btn');
+const btnSearch = document.querySelector('.js-btn');
 const inputSearch = document.querySelector('.js-input');
 const favoritesList = document.querySelector('.js_favoritesList');
 
