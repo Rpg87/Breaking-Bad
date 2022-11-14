@@ -67,35 +67,60 @@ function addCharFavorites() {
 
 
 function renderFavoritesChar() {
+    let htmlFav = '';
+    for (let i = 0; i < favoritesCharacters.length; i++) {
+        htmlFav += renderListCharacters(favoritesCharacters[i])
+    }
+    favoritesList.innerHTML = htmlFav;
+
+}
+/*function renderFavoritesChar() {
     favoritesList.innerHTML = '';
     for (const favoriteCharList of favoritesCharacters) {
         favoritesList.innerHTML += renderListCharacters(favoriteCharList)
+        // si quiero que se pinte en favoritos debo trabajar desde aquí
     }
-}
+}*/
 
 
 function handleClickFavorite(event) {
     event.currentTarget.classList.toggle('selected');
-    console.log(event.currentTarget.id);
 
     const currentTarget = parseInt(event.currentTarget.id);
 
     const selectedFavorite = charactersApi.find((eachChar) => eachChar.char_id === currentTarget);
 
-    const charInFavorite = favoritesCharacters.find((eachChar) => eachChar.char_id === currentTarget);
-    console.log(charInFavorite);
-    if (!charInFavorite) { // same of charInFavorite === undefined -- undefined = not in the list
+    const removeOrNotFavorites = favoritesCharacters.findIndex((eachChar) => eachChar.char_id === currentTarget);
+
+    if (removeOrNotFavorites === -1) { //console.log(removeOrNotFavorites) = 0
         favoritesCharacters.push(selectedFavorite);
+    } else {
+        favoritesCharacters.splice(removeOrNotFavorites, 1);
     }
-
-    console.log(selectedFavorite);
-
-    renderFavoritesChar();
+    /*const charInFavorite = favoritesCharacters.find((eachChar) => eachChar.char_id === currentTarget);
 
     //only one find -- push  // if same id filter -- concat 
 
+
+    if (!charInFavorite) { // same of charInFavorite === undefined -- undefined = not in the list
+        favoritesCharacters.push(selectedFavorite);
+
+    }*/
+    localStorage.setItem('storageFavorites', JSON.stringify(favoritesCharacters)); //saves it on the computer
+
+
+    renderFavoritesChar();
+
+
+
 }
 //local
+const savedFavorites = JSON.parse(localStorage.getItem('storageFavorites'));
+console.log(savedFavorites);
+if (savedFavorites !== null) { // !== diferent of null, IF is necessary to avoid errors on page startup
+    favoritesCharacters = savedFavorites;
+    renderFavoritesChar();
+};
 
 
 
