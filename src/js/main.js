@@ -17,7 +17,7 @@ let favoritesCharacters = [];
 // inner li => next step DOM
 function renderListCharacters(characters) {
     let innerlist = `<li  class="listCharacters js_liCard" id="${characters.char_id}">
-<article>
+<article class= "article">
     <img class="listCharacters__img" src="${characters.img}" alt="${characters.name}">
     <h3 class="listCharacters__name">${characters.name}</h3>
     <h4 class="listCharacters__status">${characters.status}</h4>
