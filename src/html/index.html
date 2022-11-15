@@ -13,16 +13,20 @@
     <title>Evaluación final Raquel Peña</title>
 </head>
 
-<body>
+<body class="background">
     <header>
-        <form class="form" action="">
-            <input class="js-input form__input" type="text" placeholder="Example: Walter White">
-            <button class="js-btn form__btn">Search</button>
-        </form>
+        <div class="imagesHeader"></div>
+        <div class="padd">
+            <form class="form" action="">
+                <input class="js-input form__input" type="text" placeholder="Example: Walter White">
+                <button class="js-btn form__btn">Search</button>
+            </form>
+        </div>
     </header>
     <main class="main">
         <section class="favorites">
             <h2 class="favorites__titleFavorites">Favorites ❤️</h2>
+            <button class="js-btnDelete btnDelete">Delete All</button>
             <ul class="js_favoritesList favorites__listFavorites"></ul>
         </section>
 
@@ -30,12 +34,14 @@
             <h1 class="sectionCharacters__title">Characters ❤️ </h1>
             <ul class="js_characters sectionCharacters__list"></ul>
         </section>
-
-
-
-
     </main>
-
+    <footer class="footer">
+        <div class="footer__text">
+            Breaking Bad is a regarded as one of the greatest television series of all time, and with
+            16
+            Primetime Emmy Awards &copy; Raquel Peña 2022
+        </div>
+    </footer>
     <script src="./assets/js/main.js"></script>
 </body>
 
